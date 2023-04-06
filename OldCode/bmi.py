@@ -73,8 +73,19 @@ class App(ctk.CTk):
 
         self.bmi = self.calculate_bmi(height=height, weight=weight)
 
+        self.result = "You're "
+        if self.bmi < 18.5:
+            self.result += "underweight"
+        elif 18.5 <= self.bmi <= 24.9:
+            self.result += "normal"
+        elif 25 <= self.bmi < 30:
+            self.result += "overweight"
+        else:
+            self.result += "obese"
+
         self.output.delete(0.0, "end")
         self.output.insert(0.0, self.bmi)
+        self.output.insert("end", f"\n{self.result}")
 
 
 def main() -> None:
