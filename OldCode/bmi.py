@@ -51,13 +51,30 @@ class App(ctk.CTk):
         self.results_frame.pack(fill="both", padx=10, pady=(5, 10))
 
         self.calculate_button = ctk.CTkButton(
-            master=self.results_frame,
-            text="Calcluate",
+            master=self.results_frame, text="Calcluate", command=self.print_result
         )
         self.calculate_button.pack()
 
         self.output = ctk.CTkTextbox(master=self.results_frame)
         self.output.pack(pady=(10, 10))
+
+    def calculate_bmi(self, height: float, weight: float) -> float:
+        return round(weight / (height * height) * (10000), 1)
+
+    def print_result(self) -> None:
+        try:
+            height = float(self.height_entry.get())
+        except TypeError:
+            print("Input must be of type float")
+        try:
+            weight = float(self.weight_entry.get())
+        except TypeError:
+            ("Input must be of type float")
+
+        self.bmi = self.calculate_bmi(height=height, weight=weight)
+
+        self.output.delete(0.0, "end")
+        self.output.insert(0.0, self.bmi)
 
 
 def main() -> None:
