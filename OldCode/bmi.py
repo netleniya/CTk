@@ -16,6 +16,37 @@ def main() -> None:
     )
     label.pack()
 
+    frame = ctk.CTkFrame(master=app)
+    frame.pack(fill="x", padx=10, pady=10)
+
+    forms_frame = ctk.CTkFrame(master=frame)
+    forms_frame.pack(fill="both")
+
+    weight_label = ctk.CTkLabel(
+        master=forms_frame, text="Weight", font=ctk.CTkFont(size=16, weight="bold")
+    )
+    weight_label.pack(pady=(10, 5))
+    weight_entry = ctk.CTkEntry(master=forms_frame, placeholder_text="weight (kg)")
+    weight_entry.pack(pady=(5, 10))
+
+    height_label = ctk.CTkLabel(
+        master=forms_frame, text="Height", font=ctk.CTkFont(size=16, weight="bold")
+    )
+    height_label.pack(pady=(10, 5))
+    height_entry = ctk.CTkEntry(master=forms_frame, placeholder_text="height (cm)")
+    height_entry.pack(pady=(5, 10))
+
+    button_frame = ctk.CTkFrame(master=frame)
+    button_frame.pack(fill="x", pady=(10, 5))
+
+    calculate_button = ctk.CTkButton(
+        master=button_frame, text="Calculate BMI", command=calculate_bmi
+    )
+    calculate_button.pack()
+
+    results = ctk.CTkTextbox(master=button_frame)
+    results.pack(pady=(20, 20))
+
     app.mainloop()
 
 
