@@ -1,5 +1,5 @@
+from typing import Optional, Tuple, Union
 import customtkinter as ctk
-from typing import Optional, Union, Tuple
 
 
 class App(ctk.CTk):
