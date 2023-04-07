@@ -1,20 +1,18 @@
 [tool.poetry]
-name = "gpt"
+name = "customtk"
 version = "0.1.0"
-description = "OpenAI Code"
+description = "Simple Gui Applications"
 authors = ["Peter Fiee <peterfiee@icloud.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 openai = "^0.27.4"
 requests = "^2.28.2"
 customtkinter = "^5.1.2"
 black = "^23.3.0"
+mypy = "^1.2.0"
 
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.1.1"
 
 [build-system]
 requires = ["poetry-core"]
