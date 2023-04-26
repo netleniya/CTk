@@ -24,15 +24,15 @@ def generate() -> None:
 
     print(prompt)
 
-    # openai.api_key = os.environ.get("OPENAI_API_KEY")
+    openai.api_key = os.environ.get("OPENAI_API_KEY")
 
-    # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[{"role": "user", "content": prompt}],
-    # )
-    # answer = response.choices[0].message.content
-    # result.delete(0.0, "end")
-    # result.insert("0.0", answer)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    answer = response.choices[0].message.content # type: ignore
+    result.delete(0.0, "end")
+    result.insert("0.0", answer)
 
 
 root = ctk.CTk()
